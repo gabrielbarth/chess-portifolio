@@ -50,9 +50,9 @@ const IndexPage = ({ data }) => {
         data.allContentfulVideo.nodes.filter(video => video.category.includes(selectedItem)).map(video => {
           return (
             <div className={indexStyles.videoContainer} key={video.title}>
-                <h2> {video.title} </h2>
-                <div className={indexStyles.youtubeVideo} dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
-                <p> {video.description.description}  </p>
+                <h2 className={indexStyles.videoTitle}> {video.title} </h2>
+                <div dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
+                <p className={indexStyles.videoDescription}> {video.description.description}  </p>
             </div>
             )
         })
