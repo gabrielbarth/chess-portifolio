@@ -51,7 +51,9 @@ const IndexPage = ({ data }) => {
           return (
             <div className={indexStyles.videoContainer} key={video.title}>
                 <h2 className={indexStyles.videoTitle}> {video.title} </h2>
-                <div dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
+                <div className={indexStyles.youtubeVideo}>
+                  <div dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
+                </div>
                 <p className={indexStyles.videoDescription}> {video.description.description}  </p>
             </div>
             )
