@@ -43,6 +43,7 @@ const IndexPage = ({ data }) => {
               <option className={indexStyles.selectorOption} value="aberturas"> Aberturas </option>
               <option className={indexStyles.selectorOption} value="meio-jogo"> Meio Jogo </option>
               <option className={indexStyles.selectorOption} value="taticas"> Táticas e Estratégias </option>
+              <option className={indexStyles.selectorOption} value="didatica"> Didática </option>
           </select>
         </div>
     
