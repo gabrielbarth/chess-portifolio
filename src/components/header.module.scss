@@ -1,9 +1,9 @@
 .header {
-  padding: 1rem 0 3rem;
+  padding: 1rem 0 1rem;
 }
 
 .title {
-  color: #000000;
+  color: #F2F2F2;
   font-size: 3rem;
   text-decoration: none;
 }
@@ -11,14 +11,17 @@
 .nav-list {
   display: flex;
   list-style-type: none;
-  margin: 0;
+  margin: 30px 0;
 }
 
 .nav-item {
-  color: #999999;
-  font-size: 0.9rem;
+  color: #e4e4e4;
+  font-size: 18px;
   margin-right: 1.3rem;
   text-decoration: none;
+  background: #756E50;
+  padding: 15px 20px;
+  border-radius: 4px;
 }
 
 .nav-item:hover {
@@ -27,4 +30,8 @@
 
 .active-nav-item {
   color: #333333;
+}
+
+.navContainer{
+  margin: 100px 0;
 }

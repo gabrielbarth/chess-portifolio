@@ -22,7 +22,7 @@ const Header = () => {
           {data.site.siteMetadata.title}
         </Link>
       </h1>
-      <nav>
+      <nav className={headerStyles.navContainer}>
         <ul className={headerStyles.navList}>
           <li>
             <Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to="/">Home</Link>

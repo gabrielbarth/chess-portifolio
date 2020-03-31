@@ -16,7 +16,12 @@ const Footer = () => {
 `)
   return (
     <footer className={footerStyles.footer}>
-      <p>Created by {data.site.siteMetadata.author}, © 2020</p>
+      <p className={footerStyles.footerText}>
+        Xadrez para todos. Todos os direitos reservados. <br/>Created by 
+        <a className={footerStyles.footerAuthor} href="https://gabrielbarth.com" target="_blank" >
+          {data.site.siteMetadata.author}
+        </a> © 2020.
+      </p>
     </footer>
   )
 }
