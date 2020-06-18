@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Xadrez para todos',
+    title: 'Tudo de xadrez',
     author: 'Gabriel Barth'
   },
   plugins: [
@@ -32,6 +32,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-sass',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

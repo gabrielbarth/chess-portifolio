@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import Head from '../components/head'
+import Layout from '../components/Layout/layout'
+import Head from '../components/Layout/head'
+import Button from '../components/Button'
 
-import indexStyles from './index.module.scss'
+import {Container, VideosContainer, Video, VideoTexts } from '../styles/index.styles'
 
 export const query = graphql`
       query {
@@ -28,38 +29,38 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => {
   const [selectedItem, setselectedItem] = useState('');
+  const [activeButton, setActiveButton] = useState('');
+
+  function handleSelect(op){
+    setActiveButton(op);
+    setselectedItem(op);
+  }
 
   return (
       <Layout>
         <Head title="Home" />
+        <Container>
 
-      <div className={indexStyles.selectorContainer}>
-          <select id="category" 
-            className={indexStyles.selector}
-            value={selectedItem} 
-            onChange={e => setselectedItem(e.target.value)}>
-              <option className={indexStyles.selectorOption} value=""> Todos </option>
-              <option className={indexStyles.selectorOption} value="finais"> Finais </option>
-              <option className={indexStyles.selectorOption} value="aberturas"> Aberturas </option>
-              <option className={indexStyles.selectorOption} value="meio-jogo"> Meio Jogo </option>
-              <option className={indexStyles.selectorOption} value="taticas"> Táticas e Estratégias </option>
-              <option className={indexStyles.selectorOption} value="didatica"> Didática </option>
-          </select>
-        </div>
-    
-        {   
-        data.allContentfulVideo.nodes.filter(video => video.category.includes(selectedItem)).map(video => {
-          return (
-            <div className={indexStyles.videoContainer} key={video.title}>
-                <h2 className={indexStyles.videoTitle}> {video.title} </h2>
-                <div className={indexStyles.youtubeVideo}>
+        <Button active={activeButton === ''} onClick={()=> handleSelect('')} >Todos</Button>
+        <Button active={activeButton === 'iniciantes'} onClick={()=> handleSelect('iniciantes')} >Iniciante</Button>
+        <Button active={activeButton === 'finais'} onClick={()=> handleSelect('finais')} >Finais</Button>
+        <Button active={activeButton === 'partidas'} onClick={()=> handleSelect('partidas')} >Partidas Analisadas</Button>
+          
+          <VideosContainer>
+           {data.allContentfulVideo.nodes.filter(video => 
+           video.category.includes(selectedItem)).map(video => (
+                <Video  key={video.title}>
                   <div dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
-                </div>
-                <p className={indexStyles.videoDescription}> {video.description.description}  </p>
-            </div>
+                  <VideoTexts>
+                    <h2>{video.title}</h2>
+                    <p>{video.description.description}</p>
+                  </VideoTexts>
+                </Video>
+                )
             )
-        })
-        }
+            }
+          </VideosContainer>
+        </Container>
       </Layout>
   )
 }
