@@ -18,28 +18,27 @@ const ContentPage = (props) => {
   }
   `)
 
-  const p = props.contentfulPdfContent.files.file.url + '';
-  const validateProp = p.replace("//", "");
+  
 
   return (
     <Layout>
       <Head title="Blog" />
-      <h1>Blog</h1>
-      <a href={validateProp} download>
-        download pdf
+      <h1>Contents</h1>
+
+      {
+      data.contentfulPdfContent.files.map(file => {
+      // const p = props.contentfulPdfContent.files.file.url + '';
+      const p = file.url + '';
+      const validateProp = p.replace("//", "");
+      
+      return  (
+        <a href={validateProp} download>
+          download pdf
         </a>
-      {/* <ol>
-        {
-           data.allContentfulBlogPost.edges.map(post => (
-          <li >
-              <Link to={`/blog/${post.node.slug}`}> 
-                <h2>  {post.node.title} </h2>
-                <p>  {post.node.publishedDate} </p>
-              </Link>  
-          </li>
-        ))
-        }
-         </ol> */}
+      )
+      })
+      }
+
     </Layout>
   )
 }
