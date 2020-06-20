@@ -17,7 +17,7 @@ export default function ContentPage({ data }) {
         return (
           file.node.files.map(f => {
 
-            const url = f.file.url.replace("//", "");
+            const url = f.file.url.replace("//", "https://");
             console.log(url)
 
             return (
