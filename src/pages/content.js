@@ -4,17 +4,27 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import Layout from '../components/Layout/layout'
 import Head from '../components/Layout/head'
 
-export default function ContentPage (props) {
-  console.log(query)
-  console.log(props.data)
+export default function ContentPage({ data }) {
+
+  const files = data.allContentfulPdfContent.edges;
+
   return (
     <Layout>
       <Head title="Materiais" />
       <h1>Contents</h1>
-     
-          {/* <a href={file.url} download>
-             {'\n'}download pdf
-          </a> */}
+
+      {files.map(file => {
+
+        file.node.files.map(f => {
+          console.log(f)
+          return (
+            <a href={f.file.url} download>
+              DONWLOAD HERE
+            </a>
+          )
+        })
+      })
+      }
 
     </Layout>
   )
