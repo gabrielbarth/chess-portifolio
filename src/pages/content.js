@@ -4,23 +4,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import Layout from '../components/Layout/layout'
 import Head from '../components/Layout/head'
 
-export const query = useStaticQuery(graphql`
-query {
-  allContentfulPdfContent {
-    edges {
-      node {
-        files {
-          file {
-            url
-          }
-        }
-      }
-    }
-  }
-}
-`)
-
-const ContentPage = (props) => {
+export default function ContentPage (props) {
   console.log(props)
   console.log(props.data)
   return (
@@ -36,4 +20,18 @@ const ContentPage = (props) => {
   )
 }
 
-export default ContentPage
+export const query = useStaticQuery(graphql`
+query {
+  allContentfulPdfContent {
+    edges {
+      node {
+        files {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+}
+`)
