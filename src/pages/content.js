@@ -14,15 +14,20 @@ export default function ContentPage({ data }) {
       <h1>Contents</h1>
 
       {files.map(file => {
+        return (
+          file.node.files.map(f => {
 
-        file.node.files.map(f => {
-          console.log(f)
-          return (
-            <a href={f.file.url} download>
-              DONWLOAD HERE
-            </a>
-          )
-        })
+            const url = f.file.url.replace("//", "");
+            console.log(url)
+
+            return (
+              <a href={url} download>
+                DONWLOAD HERE
+              </a>
+            )
+
+          }))
+
       })
       }
 
