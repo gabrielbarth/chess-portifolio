@@ -21,9 +21,9 @@ export default function ContentPage({ data }) {
             console.log(url)
 
             return (
-              <a href={url}>
+              <Link href={url}  target="_blank">
                 DONWLOAD HERE
-              </a>
+              </Link>
             )
 
           })
