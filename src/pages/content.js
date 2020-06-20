@@ -33,6 +33,7 @@ const ContentPage = (props) => {
       
       return  (
         <a href={validateProp} download>
+          {validateProp}
           download pdf
         </a>
       )
