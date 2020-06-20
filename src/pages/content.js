@@ -5,7 +5,7 @@ import Layout from '../components/Layout/layout'
 import Head from '../components/Layout/head'
 
 export default function ContentPage (props) {
-  console.log(props)
+  console.log(query)
   console.log(props.data)
   return (
     <Layout>
@@ -20,7 +20,7 @@ export default function ContentPage (props) {
   )
 }
 
-export const query = useStaticQuery(graphql`
+export const query = graphql`
 query {
   allContentfulPdfContent {
     edges {
@@ -34,4 +34,4 @@ query {
     }
   }
 }
-`)
+`
