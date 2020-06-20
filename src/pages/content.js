@@ -32,8 +32,8 @@ const ContentPage = (props) => {
       const validateProp = p.replace("//", "");
       
       return  (
-        <a href={validateProp} download>
-          {validateProp}
+        <a href={file.url} download>
+          {file.url}
           download pdf
         </a>
       )
