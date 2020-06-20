@@ -21,12 +21,13 @@ export default function ContentPage({ data }) {
             console.log(url)
 
             return (
-              <a href={url} download>
+              <a href={url}>
                 DONWLOAD HERE
               </a>
             )
 
-          }))
+          })
+          )
 
       })
       }
