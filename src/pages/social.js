@@ -14,7 +14,7 @@ const MediasPage = () => {
       <div>
         <a href="https://www.twitch.tv/glauciocella" target="_blank">
         <TwitchIcon size={200}/>
-        <p>Twich - GlaucioCella</p>
+        <p>Twitch - GlaucioCella</p>
         </a>
         <a href="https://www.youtube.com/user/MrBocalf/videos" target="_blank">
         <YoutubeIcon size={200}/>

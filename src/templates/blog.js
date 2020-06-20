@@ -14,6 +14,11 @@ export const query = graphql`
       body {
         json
       }
+      files {
+        file {
+          url
+        }
+      }
     }
   }
 `
@@ -48,6 +53,9 @@ const Blog = (props) => {
       <p> {props.data.contentfulBlogPost.publishedDate} </p>
       <div>
         {documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
+        <a href={documentToReactComponents(props.data.contentfulBlogPost.files.file.url)} download="teste.pdf" >
+         DOWNLOAD PDF
+        </a>
       </div>
     </Layout>
   )
