@@ -1,5 +1,5 @@
 import React from 'react'
-import {graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 
 import Layout from '../components/Layout/layout'
 import Head from '../components/Layout/head'
@@ -18,14 +18,17 @@ const ContentPage = (props) => {
   }
   `)
 
+  const p = props.contentfulPdfContent.files.file.url + '';
+  const validateProp = p.replace("//", "");
+
   return (
-      <Layout>
-        <Head title="Blog"/>
-        <h1>Blog</h1>
-        <a href={props.contentfulPdfContent.files.file.url} download>
-          download
+    <Layout>
+      <Head title="Blog" />
+      <h1>Blog</h1>
+      <a href={validateProp} download>
+        download pdf
         </a>
-        {/* <ol>
+      {/* <ol>
         {
            data.allContentfulBlogPost.edges.map(post => (
           <li >
@@ -37,7 +40,7 @@ const ContentPage = (props) => {
         ))
         }
          </ol> */}
-      </Layout>
+    </Layout>
   )
 }
 
