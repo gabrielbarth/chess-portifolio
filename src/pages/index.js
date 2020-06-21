@@ -43,6 +43,7 @@ const IndexPage = ({ data }) => {
   }
 
   useEffect(() => {
+    setVideoList([]);
     setVideoList(data.allContentfulVideo.nodes.filter(video =>
       video.category.includes(activeButton)))
 
