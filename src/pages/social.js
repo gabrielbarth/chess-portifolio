@@ -3,14 +3,14 @@ import React from 'react'
 import Layout from '../components/Layout/layout'
 import Head from '../components/Layout/head'
 
-import {Container, TwitchIcon, YoutubeIcon} from '../styles/medias.styles'
+import {Container, TwitchIcon, YoutubeIcon} from '../styles/social.styles'
 
 const MediasPage = () => {
   return (
     <Layout>
       <Head title="Redes Sociais" />
       <Container>
-      <h1>Acompenhe minhas redes sociais</h1>
+      <h1>Acompanhe minhas redes sociais</h1>
       <div>
         <a href="https://www.twitch.tv/glauciocella" target="_blank">
         <TwitchIcon size={200}/>

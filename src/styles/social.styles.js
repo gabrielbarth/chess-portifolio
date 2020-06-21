@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { FaTwitch, FaYoutube } from "react-icons/fa";
 
 export const Container = styled.div`
-  font-family: 'Open Sans';
   max-width: 1000px;
   margin: 0 auto;
 
@@ -11,6 +10,13 @@ export const Container = styled.div`
     
     display: flex;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      a {
+        text-align: center;
+      }
+    }
 
     p {
       font-size: 20px;
@@ -28,7 +34,7 @@ export const Container = styled.div`
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 28px;
     text-align: center;
     margin: 20px;
   }

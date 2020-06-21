@@ -5,7 +5,6 @@ import { darken } from 'polished';
 import { FaFilePdf } from "react-icons/fa";
 
 export const Container = styled.div`
-  font-family: 'Open Sans';
   max-width: 1000px;
   margin: 0 auto;
 `;
@@ -14,6 +13,10 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   margin: 20px 80px;
+
+  h2 {
+    font-size: 18px;
+  }
 `
 
 export const PdfLink = styled(Link)`

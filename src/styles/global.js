@@ -1,7 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export default createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;700&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -22,10 +23,11 @@ export default createGlobalStyle`
   }
 
   header, footer, body, input, button {
-    font: 14px 'Open Sans', sans-serif;
+    /* font-family: 'Lora', serif; */
   }
 
   a {
+    
     text-decoration: none;
   }
 
@@ -34,6 +36,7 @@ export default createGlobalStyle`
   }
 
   button {
-    cursor: pointer
+    cursor: pointer;
+    /* font-family: 'Lora', serif; */
   }
 `;

@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { FaChess } from 'react-icons/fa';
+import { darken } from 'polished';
 
 import Burger from './Burguer';
 
 export const LinkPage = styled(Link)`
-  color: ${(props) => props.theme.linkTextColor};
+  color: ${props => darken(0.2, props.theme.white)};
   font-weight: bold;
   display: flex;
   padding-left: 15px;

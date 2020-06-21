@@ -6,6 +6,8 @@ import {
   Content,
   NavigationBar,
   MiddleContent,
+  kingIcon,
+  QueenIcon
 } from './header.styles';
 
 const Header = () => {

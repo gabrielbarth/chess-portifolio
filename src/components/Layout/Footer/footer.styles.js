@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { transparentize } from 'polished'
 
 export const Container = styled.div`
+
   height: 100px;
   justify-content: center;
   align-items: center;
@@ -8,12 +10,12 @@ export const Container = styled.div`
   background: ${props => props.theme.footerBgColor};
 
   footer {
-    font-family: 'Open Sans';
     justify-content: center;
     align-items: center;
+    font-family: 'Lora', serif;
 
     a{
-      color: ${props => props.theme.linkTextColor};
+      color: ${props => props.theme.white};
       transition: color 0.5s;
 
       &:hover {
@@ -22,11 +24,12 @@ export const Container = styled.div`
     }
 
     p {
+      
       font-weight: bold;
       font-size: 18px;
       text-align: center;
       padding-top: 5px;
-      color: ${props => props.theme.textColor}
+      color: ${props => transparentize(0.3, props.theme.white)};
     }
   }
 

@@ -2,7 +2,6 @@ import  styled from 'styled-components'
 
 
 export const Container = styled.div`
-  font-family: 'Open Sans';
   max-width: 1000px;
   margin: 0 auto;
 `;
@@ -32,6 +31,12 @@ export const Video = styled.div`
     border-radius: 4px;
     width: 480px;
     height: 300px;
+
+    @media (max-width: 768px) {
+      width: 320px;
+      height: 160px;
+    }
+
   }
 `
 export const VideoTexts = styled.div`

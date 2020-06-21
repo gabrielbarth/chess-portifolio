@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import { darken, transparentize } from 'polished';
 
-export const Container = styled.div`
-  font-family: 'Open Sans';
+import { FaChessKing, FaChessQueen } from "react-icons/fa";
+
+export const Container = styled.div`  
   background: ${props => props.theme.headerBgColor};
   padding: 0 15px;
+  font-family: 'Lora', serif;
 `;
 
 export const Content = styled.div`
@@ -25,20 +26,21 @@ export const NavigationBar = styled.div`
 export const MiddleContent = styled.div`
   h1 {
     font-weight: bolder;
-    color: ${props => darken(0.2, props.theme.primaryColor)};
+    color: ${props =>  props.theme.white};
     font-size: 42px;
     text-align: center;
   }
 
   h3 {
-    color: ${props => darken(0.1, props.theme.lightTextColor)};
+    color: ${props => darken(0.2, props.theme.white)};
     font-size: 24px;
     font-weight: normal;
     text-align: center;
     margin-left: 60px;
 
   }
-
-  
-  
 `;
+
+export const kingIcon = styled(FaChessKing)``
+
+export const QueenIcon = styled(FaChessQueen)``

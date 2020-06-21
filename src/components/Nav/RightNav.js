@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { lighten, darken } from 'polished';
 
 const Ul = styled.ul`
   list-style: none;
@@ -10,6 +11,7 @@ const Ul = styled.ul`
   li {
     padding: 26px 15px 0 15px;
   }
+
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: ${(props) => props.theme.footerBgColor};
@@ -21,6 +23,7 @@ const Ul = styled.ul`
     width: 300px;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
+
     li {
       color: #fff;
     }
@@ -28,7 +31,7 @@ const Ul = styled.ul`
 `;
 
 export const LinkPage = styled(Link)`
-  color: ${(props) => props.theme.linkTextColor};
+  color: ${props => darken(0.2, props.theme.white)};
   font-weight: bold;
   font-size: 20px;
   transition: color 0.5s;
