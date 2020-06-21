@@ -14,22 +14,14 @@ export default function ContentPage({ data }) {
       <h1>Contents</h1>
 
       {files.map(file => {
+        const url = file.node.file.file.url.replace("//", "https://");
+        
         return (
-          file.node.files.map(f => {
-
-            const url = f.file.url.replace("//", "https://");
-            console.log(url)
-
-            return (
-              <Link href={url}  target="_blank">
-                DONWLOAD HERE
-              </Link>
-            )
-
-          })
-          )
-
-      })
+          <Link href={url} target="_blank">
+            {file.node.file.description}
+          </Link>
+        )}
+        )
       }
 
     </Layout>
@@ -41,7 +33,8 @@ query {
   allContentfulPdfContent {
     edges {
       node {
-        files {
+        file {
+         description
           file {
             url
           }
