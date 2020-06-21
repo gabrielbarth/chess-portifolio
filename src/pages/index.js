@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout/layout'
 import Head from '../components/Layout/head'
 import Button from '../components/Button'
 
-import {Container, VideosContainer, Video, VideoTexts } from '../styles/index.styles'
+import { Container, VideosContainer, Video, VideoTexts } from '../styles/index.styles'
 
 export const query = graphql`
       query {
@@ -34,38 +34,46 @@ export const query = graphql`
 const IndexPage = ({ data }) => {
   const [selectedItem, setselectedItem] = useState('');
   const [activeButton, setActiveButton] = useState('');
+  const [videoList, setVideoList] = useState([]);
 
-  function handleSelect(op){
+  function handleSelect(op) {
+    setVideoList([]);
     setActiveButton(op);
     setselectedItem(op);
   }
 
-  return (
-      <Layout>
-        <Head title="Vídeos" />
-        <Container>
+  useEffect(() => {
+    setVideoList(data.allContentfulVideo.nodes.filter(video =>
+      video.category.includes(activeButton)))
 
-        <Button active={activeButton === ''} onClick={()=> handleSelect('')} >Todos</Button>
-        <Button active={activeButton === 'iniciantes'} onClick={()=> handleSelect('iniciantes')} >Iniciante</Button>
-        <Button active={activeButton === 'finais'} onClick={()=> handleSelect('finais')} >Finais</Button>
-        <Button active={activeButton === 'partidas'} onClick={()=> handleSelect('partidas')} >Partidas Analisadas</Button>
-          
-          <VideosContainer>
-           {data.allContentfulVideo.nodes.filter(video => 
-           video.category.includes(selectedItem)).map(video => (
-                <Video  key={video.title}>
-                  <div dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
-                  <VideoTexts>
-                    <h2>{video.title}</h2>
-                    <p>{video.description.description}</p>
-                  </VideoTexts>
-                </Video>
-                )
-            )
-            }            
-          </VideosContainer>
-        </Container>
-      </Layout>
+  }, [activeButton])
+
+
+  return (
+    <Layout>
+      <Head title="Vídeos" />
+      <Container>
+
+        <Button active={activeButton === ''} onClick={() => handleSelect('')} >Todos</Button>
+        <Button active={activeButton === 'iniciantes'} onClick={() => handleSelect('iniciantes')} >Iniciantes</Button>
+        <Button active={activeButton === 'finais'} onClick={() => handleSelect('finais')} >Finais</Button>
+        <Button active={activeButton === 'partidas'} onClick={() => handleSelect('partidas')} >Partidas Analisadas</Button>
+        {console.log(activeButton, selectedItem, videoList)}
+        <VideosContainer>
+
+          {videoList.map(video => (
+            <Video key={video.title}>
+              <div dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
+              <VideoTexts>
+                <h2>{video.title}</h2>
+                <p>{video.description.description}</p>
+              </VideoTexts>
+            </Video>
+          ))
+          }
+        </VideosContainer>
+      </Container>
+    </Layout>
   )
 }
 
