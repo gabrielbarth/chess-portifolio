@@ -10,6 +10,16 @@ export const Container = styled.div`
 export const VideosContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const Video = styled.div`

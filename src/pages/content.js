@@ -1,8 +1,11 @@
 import React from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql} from 'gatsby'
 
 import Layout from '../components/Layout/layout'
 import Head from '../components/Layout/head'
+
+import { Container, ContentScroll, Content, PdfLink, PdfIcon } from '../styles/content.styles'
+
 
 export default function ContentPage({ data }) {
 
@@ -11,19 +14,27 @@ export default function ContentPage({ data }) {
   return (
     <Layout>
       <Head title="Materiais" />
-      <h1>Contents</h1>
+      <Container>
+        <ContentScroll>
+          {files.map(file => {
+            const url = file.node.file.file.url.replace("//", "https://");
 
-      {files.map(file => {
-        const url = file.node.file.file.url.replace("//", "https://");
-        
-        return (
-          <Link href={url} target="_blank">
-            {file.node.file.description}
-          </Link>
-        )}
-        )
-      }
+            return (
+              <PdfLink href={url} target="_blank">
+                <Content>
+                  <PdfIcon size={40} />
+                  <h2>
+                    {file.node.file.description}
+                  </h2>
+                </Content>
+              </PdfLink>
 
+            )
+          }
+          )
+          } 
+        </ContentScroll>
+      </Container>
     </Layout>
   )
 }

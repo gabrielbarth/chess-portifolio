@@ -20,8 +20,12 @@ export const query = graphql`
               childMarkdownRemark {
                 html
               }
-              
             }
+          }
+          pageInfo {
+            currentPage
+            hasNextPage
+            hasPreviousPage
           }
         }
       }
@@ -38,7 +42,7 @@ const IndexPage = ({ data }) => {
 
   return (
       <Layout>
-        <Head title="Home" />
+        <Head title="Vídeos" />
         <Container>
 
         <Button active={activeButton === ''} onClick={()=> handleSelect('')} >Todos</Button>
@@ -58,7 +62,7 @@ const IndexPage = ({ data }) => {
                 </Video>
                 )
             )
-            }
+            }            
           </VideosContainer>
         </Container>
       </Layout>
