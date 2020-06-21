@@ -42,10 +42,26 @@ const IndexPage = ({ data }) => {
     setselectedItem(op);
   }
 
+  function getUnique(arr, comp) {
+
+    // store the comparison  values in array
+    const unique = arr.map(e => e[comp])
+
+      // store the indexes of the unique objects
+      .map((e, i, final) => final.indexOf(e) === i && i)
+
+      // eliminate the false indexes & return unique objects
+      .filter((e) => arr[e]).map(e => arr[e]);
+
+    return unique;
+  }
+
   useEffect(() => {
     setVideoList([]);
-    setVideoList(data.allContentfulVideo.nodes.filter(video =>
-      video.category.includes(activeButton)))
+
+    const list = getUnique(data.allContentfulVideo.nodes.filter(video => video.category.includes(activeButton)), 'title');
+
+    setVideoList(list)
 
   }, [activeButton])
 
@@ -59,9 +75,8 @@ const IndexPage = ({ data }) => {
         <Button active={activeButton === 'iniciantes'} onClick={() => handleSelect('iniciantes')} >Iniciantes</Button>
         <Button active={activeButton === 'finais'} onClick={() => handleSelect('finais')} >Finais</Button>
         <Button active={activeButton === 'partidas'} onClick={() => handleSelect('partidas')} >Partidas Analisadas</Button>
-        {console.log(activeButton, selectedItem, videoList)}
-        <VideosContainer>
 
+        <VideosContainer>
           {videoList.map(video => (
             <Video key={video.title}>
               <div dangerouslySetInnerHTML={{ __html: video.url.childMarkdownRemark.html }} />
