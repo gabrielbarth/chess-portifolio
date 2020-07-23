@@ -16,6 +16,10 @@ Web (ReactJS) project developed using [Gatsby](https://www.gatsbyjs.org/) and [C
 This project was developed to expose contents created by National Master Chess Glaucio Cella.
 You can follow its content through [YouTube](https://www.youtube.com/user/MrBocalf/videos) and [Twitch](https://www.twitch.tv/glauciocella).
 
+<p align="center">
+  <a href="https://xadrezparatodos.netlify.app/">LIVE DEMO</a>
+  </p>
+
 ##  :computer: Interfaces view
 <div style="display:block; justify-content: center">
   <img alt="IMAGE.GIF" title="html-image" src="./images/img1.png" width="700px" />
@@ -50,4 +54,6 @@ Please feel free to contributing and submitting pull requests.
 Or send me an email :incoming_envelope:: gabrielbarth.dev@gmail.com.
 <br>
 <br>
-Made with ♥ by [Gabriel Barth](https://gabrielbarth.com)
+ <p align="center">
+  Made with ♥ by <a href="https://gabrielbarth.com/">Gabriel Barth</a>
+</p>
